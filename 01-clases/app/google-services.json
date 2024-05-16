@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1044818289423",
+    "project_id": "jfrq-2024a-sw-gr2",
+    "storage_bucket": "jfrq-2024a-sw-gr2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1044818289423:android:6a9ebf177457cc2ac5147a",
+        "android_client_info": {
+          "package_name": "com.example.a2024aswgr2jfrq"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7li-7XDLSCc8wqqYHg_MucOEyI-fjeJU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
