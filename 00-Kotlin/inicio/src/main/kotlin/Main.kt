@@ -86,6 +86,78 @@ fun main(){
     arregloDinamico.forEach{ println("Valor Actual (it): ${it}")}
 
 
+    //MAP -> Muta(Modifica cambia) el arreglo
+    //1) Enviamos el nuevo valor de la iteraccion
+    //2) Nos devuelve un NUEVO ARREGLO con valores de las iteraciones
+
+    val respuestaMap : List<Double> = arregloDinamico.map{
+        valorActual : Int -> return@map valorActual.toDouble() + 100.00
+    }
+
+    println(respuestaMap)
+
+    val respuestaMapDos = arregloDinamico.map{it+15}
+    println(respuestaMapDos)
+
+
+
+    //Filter -> Filtrar Arreglo
+    // 1) Devolver expresion (True o false)
+    // 2) Nuevo arreglo filtrado
+
+    val respuestaFilter: List<Int> = arregloDinamico
+        .filter { valorActual:Int ->
+            //Expresion o Condicion
+            val mayoresACinco: Boolean = valorActual > 5
+            return@filter mayoresACinco
+        }
+
+
+    val respuestaFilterDos = arregloDinamico.filter { it <= 5 }
+    println(respuestaFilter)
+    println(respuestaFilterDos)
+
+
+
+    //OR AND
+    // OR -> ANY (Alguno cumple?)
+    // AND -> ALL (Todos cumplen?)
+
+    val respuestaAny: Boolean = arregloDinamico
+        .any{
+            valorActual : Int -> return@any(valorActual>5)
+        }
+
+    println(respuestaAny) //True
+    val respuestaAll: Boolean = arregloDinamico
+        .all{ valorActual: Int -> return@all (valorActual > 5 ) }
+
+    println(respuestaAll) // False
+
+
+    //Reduce -> Valor acumulado
+    // valor acumulado = 0 (SIEMPRE EMPIEZA EN 0 EN KOTLIN)
+    //[1,2,3,4,5] -> Acumular "Sumar" estos valores del arreglo
+    //valorIteraccion1 = valorEmpieza + 1 = 0+1 = 1 ->Interacion1
+    //valorInteraccion2 = valorAcumuladoIteraccion1 + 2 = 1+2=3 -> Iteraccion2
+    //.
+    //.
+    //.
+
+    val respuestaReduce : Int = arregloDinamico
+        .reduce{acumulado:Int, valorActual:Int ->
+            return@reduce (acumulado + valorActual) // -> Cambiar o usar la logica de negocio
+        }
+    println(respuestaReduce)
+    //return@reduce acumulado + (itemCarrito.cantidad * itemCarrito.precio)
+
+
+
+
+
+
+
+
 }// Termina funcion Main
 
 // void -> Unit
@@ -201,5 +273,7 @@ class Suma( // Constructor primario
             historialSumas.add(valorTotalSuma)
         }
     }
+
+
 
 }
