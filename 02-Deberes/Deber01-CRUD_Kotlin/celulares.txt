@@ -1,1 +1,2 @@
 1,1,Samsung,A10,0,300.0,true
+2,3,Apple,A10,256,800.0,true
