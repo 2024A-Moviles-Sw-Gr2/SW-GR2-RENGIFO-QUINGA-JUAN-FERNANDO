@@ -1,4 +1,4 @@
-# Proyecto Primer Bimestre - Apliaciones Moviles.
+# Proyecto Primer Bimestre - Aplicaciones Moviles.
 # Intercambio de Recetas Ecuatorianas
 
 ## Descripción
