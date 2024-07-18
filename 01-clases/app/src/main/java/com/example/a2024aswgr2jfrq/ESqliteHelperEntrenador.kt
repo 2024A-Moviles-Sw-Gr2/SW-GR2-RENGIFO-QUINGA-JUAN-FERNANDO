@@ -69,7 +69,7 @@ class ESqliteHelperEntrenador(
         val parametrosConsultaActualizar = arrayOf( id.toString())
         val resultadoActualizacion = conexionEscritura
             .update(
-                "ENTENADOR",
+                "ENTRENADOR",
                 valoresAActualizar, // nombre= Adrian, descripcion=B
                 "id=?", // id=1
                 parametrosConsultaActualizar // [1]
@@ -111,6 +111,7 @@ class ESqliteHelperEntrenador(
         }
         resultadoConsultaLectura.close()
         baseDatosLectura.close()
-        return arregloRespuesta[0]
+        // ESqliteHelperEntrenador.consultarEntrenadorPorID
+        return if(arregloRespuesta.size>0) arregloRespuesta[0] else null
     }
 }
