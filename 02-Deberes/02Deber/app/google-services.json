@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "182917173235",
+    "project_id": "deber02-movilesjfrq",
+    "storage_bucket": "deber02-movilesjfrq.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:182917173235:android:44c05df9ceaa68b1a00c86",
+        "android_client_info": {
+          "package_name": "com.example.deber02"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2bJ6SrTDF6p4sU2BwpDDzlLikbFRtxfc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
