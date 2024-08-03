@@ -1,15 +1,15 @@
 package com.example.a2024aswgr2jfrq
+
+
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
-import android.provider.ContactsContract.CommonDataKinds.Contactables
 import android.widget.Button
-import androidx.activity.result.ActivityResultCallback
-import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
+import com.example.a2024aswgr2jfrq.BEntrenador
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
@@ -117,6 +117,15 @@ class MainActivity : AppCompatActivity() {
         botonSqlite.setOnClickListener {
             irActividad(ECrudEntrenador::class.java)
         }
+        val botonRView = findViewById<Button>(R.id.btn_recycler_view)
+        botonRView.setOnClickListener {
+            irActividad(FRecyclerView::class.java)
+        }
+        val BotonGMaps = findViewById<Button>(R.id.btn_google_maps)
+        BotonGMaps.setOnClickListener {
+            irActividad(GGoogleMapsActivity::class.java)
+        }
+
     }
     fun irActividad(
         clase: Class<*>

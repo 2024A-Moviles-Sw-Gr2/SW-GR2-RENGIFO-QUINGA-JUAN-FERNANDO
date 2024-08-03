@@ -11,7 +11,7 @@ data class TiendaEntity(
     var nombre: String,
     var direccion: String,
     var telefono: String,
-    var fechaApertura: String // Change to String for Parcelable support
+    var fechaApertura: String
 ) : Parcelable {
     companion object {
         fun fromCSV(csv: String): TiendaEntity {

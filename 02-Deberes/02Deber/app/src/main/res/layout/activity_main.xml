@@ -6,4 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <Button
+            android:id="@+id/btn_view_tiendas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ver Tiendas" />
+
+        <Button
+            android:id="@+id/btn_add_tienda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agregar Tienda" />
+
+        <Button
+            android:id="@+id/btn_add_celular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agregar Celular" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -65,14 +65,5 @@ class ECrudEntrenador : AppCompatActivity() {
                 )
             if(respuesta) mostrarSnackbar("Entr. actualizado!")
         }
-        val botonEliminarBDD = findViewById<Button>(R.id.btn_eliminar_bdd)
-        botonEliminarBDD.setOnClickListener {
-            val id = findViewById<EditText>(R.id.input_id)
-            val respuesta = EBaseDeDatos.tablaEntrenador!!
-                .eliminarEntrenadorFormulario(
-                    id.text.toString().toInt()
-                )
-            if(respuesta) mostrarSnackbar("Entr. Eliminado")
-        }
     }
 }
