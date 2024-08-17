@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Deber02</string>
+    <string name="hint_nombre">Nombre</string>
+    <string name="hint_direccion">Dirección</string>
+    <string name="hint_telefono">Teléfono</string>
+    <string name="guardar">Guardar</string>
+    <string name="hint_marca">Marca</string>
+    <string name="hint_modelo">Modelo</string>
+    <string name="hint_almacenamiento">Almacenamiento (GB)</string>
+    <string name="hint_precio">Precio</string>
+    <string name="hint_disponible">Disponible (true/false)</string>
+
+</resources>
