@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.deber02">
+    package="com.example.examen2"
+    xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,29 +16,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="31">
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCZnHvMtkadW64vde1xUHNfG2xWw6awITs"/>
+            android:value="AIzaSyCZnHvMtkadW64vde1xUHNfG2xWw6awITs" />
 
-        <activity
-            android:name=".MapsActivity"
-            android:exported="false" />
+
+        <activity android:name=".MapActivity"/>
         <activity android:name=".CreateUpdateCelular" />
         <activity android:name=".CreateUpdateTienda" />
         <activity android:name=".TiendaList" />
         <activity android:name=".CelularesList" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.examen2.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

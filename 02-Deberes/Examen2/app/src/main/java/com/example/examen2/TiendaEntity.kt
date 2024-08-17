@@ -1,6 +1,8 @@
-package com.example.deber02
+package com.example.examen2
 
+import android.os.Build
 import android.os.Parcelable
+import androidx.annotation.RequiresApi
 import kotlinx.parcelize.Parcelize
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -11,9 +13,10 @@ data class TiendaEntity(
     var nombre: String,
     var direccion: String,
     var telefono: String,
-    var fechaApertura: String,
-    var latitud: Double,      // Nuevo campo
-    var longitud: Double      // Nuevo campo
+    var pais: String,
+    var latitud: Double,
+    var longitud: Double,
+    var fechaApertura: String
 ) : Parcelable {
     companion object {
         fun fromCSV(csv: String): TiendaEntity {
@@ -23,17 +26,20 @@ data class TiendaEntity(
                 nombre = parts[1],
                 direccion = parts[2],
                 telefono = parts[3],
-                fechaApertura = parts[4],
-                latitud = parts[5].toDouble(),      // Nuevo campo
-                longitud = parts[6].toDouble()      // Nuevo campo
+                pais = parts[4],
+                latitud = parts[5].toDouble(),
+                longitud = parts[6].toDouble(),
+                fechaApertura = parts[7]
+
             )
         }
     }
 
     fun toCSV(): String {
-        return "$id,$nombre,$direccion,$telefono,$fechaApertura,$latitud,$longitud"
+        return "$id,$nombre,$direccion,$telefono,$pais, $latitud, $longitud,$fechaApertura"
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun getFechaAperturaAsDate(): LocalDate {
         val formatter = DateTimeFormatter.ISO_LOCAL_DATE
         return LocalDate.parse(fechaApertura, formatter)

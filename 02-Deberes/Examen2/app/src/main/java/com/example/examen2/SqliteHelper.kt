@@ -1,10 +1,13 @@
-package com.example.deber02
+package com.example.examen2
 
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
+
+
 
 class SqliteHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
@@ -12,6 +15,8 @@ class SqliteHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
         db?.execSQL(CREATE_TIENDA_TABLE)
         db?.execSQL(CREATE_CELULAR_TABLE)
     }
+
+
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         db?.execSQL(DROP_TIENDA_TABLE)
@@ -21,8 +26,9 @@ class SqliteHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
 
     fun getAllTiendas(): List<TiendaEntity> {
         val tiendas = mutableListOf<TiendaEntity>()
-        val db = readableDatabase
-        val cursor: Cursor = db.rawQuery("SELECT * FROM tienda", null)
+        val db = this.readableDatabase
+        val cursor = db.rawQuery("SELECT * FROM tienda", null)
+
         if (cursor.moveToFirst()) {
             do {
                 val tienda = TiendaEntity(
@@ -31,8 +37,9 @@ class SqliteHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
                     direccion = cursor.getString(cursor.getColumnIndexOrThrow("direccion")),
                     telefono = cursor.getString(cursor.getColumnIndexOrThrow("telefono")),
                     fechaApertura = cursor.getString(cursor.getColumnIndexOrThrow("fechaApertura")),
-                    latitud = cursor.getDouble(cursor.getColumnIndexOrThrow("latitud")),  // Nuevo campo
-                    longitud = cursor.getDouble(cursor.getColumnIndexOrThrow("longitud"))  // Nuevo campo
+                    pais = cursor.getString(cursor.getColumnIndexOrThrow("pais")),
+                    latitud = cursor.getDouble(cursor.getColumnIndexOrThrow("latitud")),
+                    longitud = cursor.getDouble(cursor.getColumnIndexOrThrow("longitud"))
                 )
                 tiendas.add(tienda)
             } while (cursor.moveToNext())
@@ -51,8 +58,9 @@ class SqliteHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
             direccion = cursor.getString(cursor.getColumnIndexOrThrow("direccion")),
             telefono = cursor.getString(cursor.getColumnIndexOrThrow("telefono")),
             fechaApertura = cursor.getString(cursor.getColumnIndexOrThrow("fechaApertura")),
-            latitud = cursor.getDouble(cursor.getColumnIndexOrThrow("latitud")),  // Nuevo campo
-            longitud = cursor.getDouble(cursor.getColumnIndexOrThrow("longitud"))  // Nuevo campo
+            pais = cursor.getString(cursor.getColumnIndexOrThrow("pais")),
+            latitud = cursor.getDouble(cursor.getColumnIndexOrThrow("latitud")),
+            longitud = cursor.getDouble(cursor.getColumnIndexOrThrow("longitud"))
         )
         cursor.close()
         return tienda
@@ -106,16 +114,18 @@ class SqliteHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
         cursor.close()
         return celulares
     }
-    fun insertTienda(tienda: TiendaEntity): Long {
-        val db = writableDatabase
-        val values = ContentValues().apply {
-            put("id", tienda.id)
-            put("nombre", tienda.nombre)
-            put("direccion", tienda.direccion)
-            put("telefono", tienda.telefono)
-            put("fechaApertura", tienda.fechaApertura)
+    fun insertTienda(nombre: String, direccion: String, telefono: String, pais: String, latitud: Double, longitud: Double): Long {
+        val db = this.writableDatabase
+        val contentValues = ContentValues().apply {
+            put("nombre", nombre)
+            put("direccion", direccion)
+            put("telefono", telefono)
+            put("pais", pais)
+            put("latitud", latitud)
+            put("longitud", longitud)
         }
-        return db.insert("tienda", null, values)
+        Log.d("SQLITE", "Insertando tienda: $nombre, $direccion, $telefono, $pais, $latitud, $longitud")
+        return db.insert("tienda", null, contentValues)
     }
 
     fun insertCelular(celular: CelularEntity): Long {
@@ -143,6 +153,7 @@ class SqliteHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
                 direccion TEXT NOT NULL,
                 telefono TEXT NOT NULL,
                 fechaApertura TEXT NOT NULL,
+                pais TEXT NOT NULL,
                 latitud REAL NOT NULL,
                 longitud REAL NOT NULL
             )

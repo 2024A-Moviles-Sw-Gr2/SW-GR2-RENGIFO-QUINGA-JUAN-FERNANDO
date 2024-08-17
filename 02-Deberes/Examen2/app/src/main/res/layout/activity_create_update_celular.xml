@@ -8,70 +8,78 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
-        tools:context=".CreateUpdateTienda">
+        tools:context=".CreateUpdateCelular">
+
+        <Spinner
+            android:id="@+id/spinnerTiendas"
+            android:layout_width="match_parent"
+            android:padding="16dp"
+            android:layout_height="wrap_content" />
+
 
         <EditText
-            android:id="@+id/editTextNombre"
+            android:id="@+id/editTextMarca"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre"
+            android:hint="Marca"
             android:inputType="text"
             android:importantForAutofill="yes"
             android:padding="16dp"
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/editTextDireccion"
+            android:id="@+id/editTextModelo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Dirección"
+            android:hint="Modelo"
             android:inputType="text"
             android:importantForAutofill="yes"
             android:padding="16dp"
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/editTextLatitud"
+            android:id="@+id/editTextAlmacenamiento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Latitud"
-            android:inputType="text"
+            android:hint="Almacenamiento"
+            android:inputType="number"
             android:importantForAutofill="yes"
             android:padding="16dp"
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/editTextLongitud"
+            android:id="@+id/editTextPrecio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Longitud"
-            android:inputType="text"
+            android:hint="Precio"
+            android:inputType="numberDecimal"
             android:importantForAutofill="yes"
             android:padding="16dp"
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/editTextTelefono"
+            android:id="@+id/editTextDisponible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Teléfono"
-            android:inputType="phone"
+            android:hint="Disponible"
+            android:inputType="text"
             android:importantForAutofill="yes"
             android:padding="16dp"
             android:textSize="16sp" />
 
         <Button
-            android:id="@+id/buttonSaveTienda"
+            android:id="@+id/buttonSaveCelular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Guardar"
             android:padding="16dp" />
 
         <Button
-            android:id="@+id/buttonDeleteTienda"
+            android:id="@+id/buttonDeleteCelular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Eliminar"
             android:padding="16dp" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

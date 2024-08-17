@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "4540326351",
+    "project_id": "examenfinalmovilesjfrq",
+    "storage_bucket": "examenfinalmovilesjfrq.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:4540326351:android:17d4d86bc4643014b232ba",
+        "android_client_info": {
+          "package_name": "com.example.examen2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXIVVCKyl2DRwaXxZZx54YSgC8e3poBgk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

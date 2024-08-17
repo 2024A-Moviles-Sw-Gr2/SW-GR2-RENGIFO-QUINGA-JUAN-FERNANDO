@@ -1,4 +1,4 @@
-package com.example.deber02
+package com.example.examen2
 
 import android.content.Intent
 import android.os.Bundle
@@ -32,6 +32,7 @@ class TiendaList : AppCompatActivity() {
         listViewTiendas.setOnItemClickListener { parent, view, position, id ->
             selectedTiendaId = tiendas[position].id
             viewCelulares(selectedTiendaId!!)
+            openContextMenu(listViewTiendas)
         }
 
         registerForContextMenu(listViewTiendas)
@@ -65,9 +66,19 @@ class TiendaList : AppCompatActivity() {
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
         val info = item.menuInfo as AdapterView.AdapterContextMenuInfo
-        selectedTiendaId = tiendas[info.position].id
+        val tienda = tiendas[info.position]
         return when (item.itemId) {
+            R.id.menu_ver_mapa -> {
+                val intent = Intent(this, MapActivity::class.java).apply {
+                    putExtra("LATITUD", tienda.latitud)
+                    putExtra("LONGITUD", tienda.longitud)
+                    putExtra("NOMBRE", tienda.nombre)
+                }
+                startActivity(intent)
+                true
+            }
             R.id.edit -> {
+
                 if (selectedItemType == "Tienda") {
                     selectedTiendaId?.let { editTienda(it) }
                 } else {
@@ -83,21 +94,8 @@ class TiendaList : AppCompatActivity() {
                 }
                 true
             }
-            R.id.view_location -> {
-                selectedTiendaId?.let { viewLocation(it) }
-                true
-            }
             else -> super.onContextItemSelected(item)
         }
-    }
-
-    private fun viewLocation(tiendaId: Int) {
-        val tienda = dbHelper.getTiendaById(tiendaId)
-        val intent = Intent(this, MapsActivity::class.java).apply {
-            putExtra("LATITUD", tienda.latitud)
-            putExtra("LONGITUD", tienda.longitud)
-        }
-        startActivity(intent)
     }
 
     private fun editTienda(tiendaId: Int) {
