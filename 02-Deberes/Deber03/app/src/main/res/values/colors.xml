@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Definición de colores principales -->
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="whatsappTabIndicator">#25D366</color> <!-- Color Verde de WhatsApp -->
+
+    <!-- Colores adicionales que puedes necesitar -->
+    <color name="colorPrimaryText">#212121</color>
+    <color name="colorSecondaryText">#757575</color>
+    <color name="colorDivider">#BDBDBD</color>
+
+    <!-- Colores personalizados para WhatsApp -->
+    <color name="whatsappGreen">#25D366</color>
+    <color name="whatsappDarkGreen">#075E54</color>
+    <color name="whatsappLightGray">#ECE5DD</color>
+    <color name="whatsappBackground">#F0F0F0</color>
+</resources>

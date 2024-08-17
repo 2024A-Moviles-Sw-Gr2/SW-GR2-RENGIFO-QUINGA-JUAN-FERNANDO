@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Deber03" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Personalización del tema -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!-- Configuración del fondo -->
+        <item name="android:windowBackground">@color/whatsappBackground</item>
+
+        <!-- Configuración de la barra de acción -->
+        <item name="actionBarStyle">@style/Widget.Deber03.ActionBar</item>
+
+        <!-- Personalización del texto -->
+        <item name="android:textColor">@color/colorPrimaryText</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body1</item>
+    </style>
+
+    <style name="Widget.Deber03.TabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/whatsappTabIndicator</item>
+    </style>
+
+    <!-- Estilo para la barra de acción -->
+    <style name="Widget.Deber03.ActionBar" parent="Widget.AppCompat.ActionBar.Solid">
+        <item name="android:background">@color/whatsappDarkGreen</item>
+        <item name="titleTextStyle">@style/Widget.Deber03.ActionBar.TitleText</item>
+    </style>
+
+    <!-- Estilo para el texto de la barra de acción -->
+    <style name="Widget.Deber03.ActionBar.TitleText" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Estilos de texto personalizados -->
+    <style name="TextAppearance.Deber03.ChatName" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/colorPrimaryText</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.Deber03.ChatMessage" parent="TextAppearance.AppCompat.Body2">
+        <item name="android:textColor">@color/colorSecondaryText</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+</resources>
