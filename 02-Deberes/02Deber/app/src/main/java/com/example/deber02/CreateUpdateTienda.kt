@@ -6,6 +6,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class CreateUpdateTienda : AppCompatActivity() {
     private lateinit var dbHelper: SqliteHelper
@@ -46,6 +48,7 @@ class CreateUpdateTienda : AppCompatActivity() {
                     .show()
             } else {
                 try {
+                    val fechaApertura = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
                     val latitud = latitudStr.toDouble()
                     val longitud = longitudStr.toDouble()
 
@@ -55,6 +58,7 @@ class CreateUpdateTienda : AppCompatActivity() {
                         put("telefono", telefono)
                         put("latitud", latitud)  // Campo latitud
                         put("longitud", longitud)  // Campo longitud
+                        put("fechaApertura", fechaApertura)
                     }
 
                     val db = dbHelper.writableDatabase

@@ -41,6 +41,32 @@ class SqliteHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
         return tiendas
     }
 
+    fun insertTienda(tienda: TiendaEntity): Long {
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put("nombre", tienda.nombre)
+            put("direccion", tienda.direccion)
+            put("telefono", tienda.telefono)
+            put("fechaApertura", tienda.fechaApertura)
+            put("latitud", tienda.latitud)
+            put("longitud", tienda.longitud)
+        }
+        return db.insert("tienda", null, values)
+    }
+
+    fun updateTienda(tienda: TiendaEntity): Int {
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put("nombre", tienda.nombre)
+            put("direccion", tienda.direccion)
+            put("telefono", tienda.telefono)
+            put("fechaApertura", tienda.fechaApertura)
+            put("latitud", tienda.latitud)
+            put("longitud", tienda.longitud)
+        }
+        return db.update("tienda", values, "id=?", arrayOf(tienda.id.toString()))
+    }
+
     fun getTiendaById(id: Int): TiendaEntity {
         val db = readableDatabase
         val cursor: Cursor = db.rawQuery("SELECT * FROM tienda WHERE id = ?", arrayOf(id.toString()))
@@ -106,17 +132,7 @@ class SqliteHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
         cursor.close()
         return celulares
     }
-    fun insertTienda(tienda: TiendaEntity): Long {
-        val db = writableDatabase
-        val values = ContentValues().apply {
-            put("id", tienda.id)
-            put("nombre", tienda.nombre)
-            put("direccion", tienda.direccion)
-            put("telefono", tienda.telefono)
-            put("fechaApertura", tienda.fechaApertura)
-        }
-        return db.insert("tienda", null, values)
-    }
+
 
     fun insertCelular(celular: CelularEntity): Long {
         val db = writableDatabase
@@ -137,16 +153,16 @@ class SqliteHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
         private const val DATABASE_VERSION = 1
 
         private const val CREATE_TIENDA_TABLE = """
-            CREATE TABLE tienda (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                nombre TEXT NOT NULL,
-                direccion TEXT NOT NULL,
-                telefono TEXT NOT NULL,
-                fechaApertura TEXT NOT NULL,
-                latitud REAL NOT NULL,
-                longitud REAL NOT NULL
-            )
-        """
+        CREATE TABLE tienda (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nombre TEXT NOT NULL,
+            direccion TEXT NOT NULL,
+            telefono TEXT NOT NULL,
+            fechaApertura TEXT NOT NULL,
+            latitud REAL NOT NULL,
+            longitud REAL NOT NULL
+    )
+"""
 
         private const val CREATE_CELULAR_TABLE = """
             CREATE TABLE celular (
